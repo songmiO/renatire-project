@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>르네트르-메인</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    {*** 쇼핑몰 메인본문 | main/index.php ***} { # header }
+
+    <style>
+      /*메인 슬라이드 영역  높이값은 675px 로 측정되어 있습니다. */
+      .mainTopSildeWrap,
+      .mainTopSildeWrap .mainTopSilde .wideImages,
+      .mainTopSildeWrap .mainTopSilde .slick-slide {
+        height: 700px;
+        overflow: hidden;
+      }
+
+      /*화면 해상도(가로 넓이) 변경에 따른 높이값 변경 */
+      @media screen and (max-width: 1240px) {
+        .mainTopSildeWrap,
+        .mainTopSildeWrap .mainTopSilde .wideImages,
+        .mainTopSildeWrap .mainTopSilde .slick-slide {
+          height: 600px;
+        }
+      }
+      @media screen and (max-width: 1140px) {
+        .mainTopSildeWrap,
+        .mainTopSildeWrap .mainTopSilde .wideImages,
+        .mainTopSildeWrap .mainTopSilde .slick-slide {
+          height: 540px;
+        }
+      }
+      @media screen and (max-width: 1024px) {
+        .mainTopSildeWrap,
+        .mainTopSildeWrap .mainTopSilde .wideImages,
+        .mainTopSildeWrap .mainTopSilde .slick-slide {
+          height: 500px;
+        }
+      }
+      @media screen and (max-width: 960px) {
+        .mainTopSildeWrap,
+        .mainTopSildeWrap .mainTopSilde .wideImages,
+        .mainTopSildeWrap .mainTopSilde .slick-slide {
+          height: 420px;
+        }
+      }
+
+      .mainTitle .titleTop .plusMore {
+        font-size: 14px;
+      }
+      .mainTitle h2 {
+        font-size: 25px;
+      }
+      .goods_list_tit h3 {
+        font-size: 25px;
+      }
+      .reviewListContainer ul.reviewWrap li.reviewInfo .reviewSubject {
+        font-size: 16px;
+      }
+      .reviewListContainer ul.reviewWrap .board_name_day {
+        font-size: 14px;
+      }
+      .board_recommend {
+        font-size: 14px;
+      }
+      .reviewListContainer ul.reviewWrap .board_recommend .btn_comment {
+        font-size: 14px;
+        width: 60px;
+      }
+    </style>
+
+    <!-- FIX: 20220829 -->
+    <style>
+      .mainBanner ul.cols8 > li {
+        width: 11.95%;
+        padding: 0 0.3%;
+        text-align: center;
+      }
+      .mainBanner ul.cols8 > li:first-child {
+        padding: 0 0.3% 0 0;
+      }
+      .mainBanner ul.cols8 > li:last-child {
+        padding: 0 0 0 0.3%;
+      }
+      .mainBanner ul.cols8 > li img {
+        max-width: 149px;
+      }
+
+      @media screen and (max-width: 760px) {
+        .mainBanner ul.cols8 > li {
+          width: 24.35%;
+          padding: 0 0.3%;
+        }
+        .mainBanner ul.cols8 > li:first-child {
+          padding: 0 0.3% 0 0;
+        }
+        .mainBanner ul.cols8 > li:last-child {
+          padding: 0 0 0 0.3%;
+        }
+        .mainBanner ul.cols8 > li:nth-child(5) {
+          padding: 0 0.3% 0 0;
+        }
+        .mainBanner ul.cols8 > li img {
+          max-width: 298px;
+        }
+      }
+
+      .round_div {
+        width: 90px;
+        height: 90px;
+        border-radius: 30px;
+        background: #f3f3f3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      .round_div_color {
+        background: #ff7415;
+      }
+
+      .round_div_text {
+        font-size: 16px;
+        padding-top: 10px;
+      }
+
+      .cols8 {
+        padding-top: 6em;
+        padding-bottom: 6em;
+      }
+
+      .color_box {
+        padding-bottom: 70px;
+      }
+
+      .more_div {
+        padding-top: 50px;
+        text-align: center;
+      }
+
+      .more_box {
+        border-radius: 20px;
+        padding: 10px 25px 10px 25px;
+      }
+
+      .color_orange_text {
+        color: #ff7a00;
+      }
+
+      .hover:hover {
+        color: white;
+      }
+
+      .color_orange_border {
+        border: 1px solid #ff7a00;
+      }
+
+      .color_green_background {
+        background: #2c562d;
+      }
+
+      .design_guide {
+        background: #ff7a00;
+        height: 280px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .design_guide_img {
+        image-rendering: -webkit-optimize-contrast;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        width: 350px;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .round_div {
+          width: 80px;
+          height: 80px;
+          border-radius: 30px;
+        }
+
+        .round_div_text {
+          font-size: 12px;
+        }
+
+        .cols8 {
+          padding-top: 4em;
+          padding-bottom: 4em;
+        }
+
+        .design_guide {
+          height: 240px;
+        }
+        .design_guide_img {
+          width: 320px;
+        }
+      }
+
+      @media screen and (max-width: 760px) {
+        .design_guide {
+          height: 200px;
+        }
+        .design_guide_img {
+          width: 300px;
+        }
+
+        .round_div {
+          width: 60px;
+          height: 60px;
+          border-radius: 25px;
+        }
+
+        .round_div_text {
+          margin-bottom: 15px;
+        }
+
+        .cols8 {
+          padding-top: 2em;
+          padding-bottom: 0;
+        }
+
+        .color_box {
+          padding-bottom: 50px;
+        }
+
+        .more_div {
+          padding-top: 40px;
+        }
+      }
+    </style>
+
+    <div class="mainSildeWrap mainTopSildeWrap">
+      <div class="slideContainer mainTopSilde">
+        <!--{ @dataBanner('6096513', true) }-->
+        <div
+          class="wideImages"
+          style="background: url('{.bannerImageUrl}') no-repeat top center"
+          title="{.bannerImageAlt}"
+        >
+          <!--{ ? .bannerLink }--><a
+            href="{.bannerLink}"
+            target="{.bannerTarget}"
+          ></a
+          ><!--{ / }-->
+        </div>
+        <!--{ / }-->
+        <!--{ @dataBanner('412027244', true) }-->
+        <div class="fitImages">
+          <!--{ ? .bannerLink }--><a
+            href="{.bannerLink}"
+            target="{.bannerTarget}"
+            ><!--{ / }-->
+            <img src="{.bannerImageUrl}" style="width: 100%" />
+            <!--{ ? .bannerLink }--></a
+          ><!--{ / }-->
+        </div>
+        <!--{ / }-->
+      </div>
+    </div>
+    <div class="mainContainerHidden mTop70 mBot20">
+      <div class="mainContainer">
+        <div class="mainTitle" style="margin-bottom: 40px">
+          <h2 class="titleTop">
+            디자인 가이드<a
+              href="../board/list.php?bdId=designguide"
+              class="plusMore"
+              >디자인 가이드 더보기 ></a
+            >
+          </h2>
+          <h3 class="titleBottom">제품에 따른 디자인 가이드를 살펴보세요</h3>
+        </div>
+
+        <div class="mainContainer mTop50_">
+          <div class="mainBanner">
+            <!-- 메인 상단 2단 배너 영역  -->
+            <!-- 부분 숨김 처리 class="cols2_top displaynone"  또는 주석처리 -->
+            <ul class="cols2_top">
+              <!--{ @dataBanner('137957393') }-->
+              <li>{.tag}</li>
+              <!--{ / }-->
+            </ul>
+            <!-- 메인 상단 4단 배너 영역  -->
+            <!-- 부분 숨김 처리 class="cols4 displaynone"  또는 주석처리 -->
+            <!-- FIX: 20220829 -->
+            <ul class="cols8">
+              <!-- FIX: 20220829
+            <!--{ @dataBanner('174171300') }-->
+              <li>{.tag}</li>
+              <!--{ / }-->
+
+              <li>
+                <a href="../goods/make_view.php?goodsNo=1000000250"
+                  ><div class="round_div">
+                    <img src="../img/main/main_icon_1.png" />
+                  </div>
+                  <p class="round_div_text"><strong>원단</strong></p></a
+                >
+              </li>
+              <li>
+                <a href="../goods/make_view.php?goodsNo=1000000251"
+                  ><div class="round_div">
+                    <img src="../img/main/main_icon_2.png" />
+                  </div>
+                  <p class="round_div_text"><strong>포스터</strong></p></a
+                >
+              </li>
+              <li>
+                <a href="../goods/make_view.php?goodsNo=1000000262"
+                  ><div class="round_div">
+                    <img src="../img/main/main_icon_3.png" />
+                  </div>
+                  <p class="round_div_text"><strong>티셔츠</strong></p></a
+                >
+              </li>
+              <li>
+                <a href="../goods/make_view.php?goodsNo=1000000260"
+                  ><div class="round_div">
+                    <img src="../img/main/main_icon_4.png" />
+                  </div>
+                  <p class="round_div_text"><strong>라벨</strong></p></a
+                >
+              </li>
+              <li>
+                <a href="../goods/make_view.php?goodsNo=1000000252"
+                  ><div class="round_div">
+                    <img src="../img/main/main_icon_5.png" />
+                  </div>
+                  <p class="round_div_text"><strong>재단</strong></p></a
+                >
+              </li>
+              <li>
+                <a href="../goods/make_view.php?goodsNo=1000000263"
+                  ><div class="round_div">
+                    <img src="../img/main/main_icon_6.png" />
+                  </div>
+                  <p class="round_div_text"><strong>쏘잉</strong></p></a
+                >
+              </li>
+              <li>
+                <a href="../goods/make_list.php?cateCd=016001"
+                  ><div class="round_div">
+                    <img src="../img/main/main_icon_7.png" />
+                  </div>
+                  <p class="round_div_text"><strong>디자인</strong></p></a
+                >
+              </li>
+              <li>
+                <a href="../goods/shop.php"
+                  ><div class="round_div round_div_color">
+                    <img src="../img/main/main_icon_8.png" />
+                  </div>
+                  <p class="round_div_text"><strong>#SHOP</strong></p></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 
+            총 갯수 수정은  아래 소스중 10 부분을 수정하시기 바랍니다.  기본 10개 노출 
+            한줄에 나타나는 갯수를 수정하시려면  관리자 > 디자인 > 스킨폴더 > 게시판 > [위젯]게시글 리스트(_board_article.html) 파일 8번째 라인 <ul class="reviewWrap item w15">
+            w15 부분을 수정하시기 바랍니다.  w15 : 한줄 3개 노출 / w20 한줄 4개노출
+        -->
+
+        <!--
+        <div class="mainSildeWrap mTop40">
+            =includeWidget('board/board_article', 'bdId', goodsReviewBdId, 'listCount', 5, 'strCut', 25 ,'layoutType', 'photoreview')
+        </div>
+        -->
+      </div>
+    </div>
+
+    <!-- 
+    ※※ 중단 슬라이드 배너 진열 영역 ※※
+    해당 부분 숨김 처리 class="mainContainerHidden mTop30 displaynone" 또는 주석처리 
+    class에 displaynone을 추가하십시요.
+-->
+    <!-- 슬라이드 배너 영역 -->
+    <!-- <div class="mainContainerHidden mTop30">
+      <div class="mainContainer1260">
+        <div class="mainSildeWrap">
+          <div class="Slide1_left_bg"></div>
+          <div class="Slide1_right_bg"></div>
+          <div class="slideContainer mainSilde1">
+            { @dataBanner('3663401153') }
+            <div class="bannerImage"><span>{.tag}</span></div>
+            <!--{ / }-->
+    <!-- </div>
+        </div>
+      </div>
+    </div>  -->
+
+    <!-- ※※ NEW ARRIVALS 진열 영역 ※※ -->
+    <!-- 메인 영역 -->
+    <!-- 고객센터 -->
+    <div class="main-customer-service">
+      <!-- 고객센터 제목 영역 -->
+      <div class="customer-service-wrap">
+        <h2>무엇을 도와드릴까요?</h2>
+        <div class="service-tab-wrap">
+          <div class="service-tab">
+            <span>
+              <a href=""> FAQ </a>
+            </span>
+          </div>
+          <div class="service-tab">
+            <span>
+              <a href=""> 공지사항 </a>
+            </span>
+          </div>
+          <div class="service-tab">
+            <span>
+              <a href=""> 상품문의 </a>
+            </span>
+          </div>
+          <div class="service-tab">
+            <span>
+              <a href=""> 상품후기 </a>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- 무엇을 도와드릴까요? -->
+      <div class="slide-board">
+        <div class="board-wrap">
+          <div class="board-wrap-inner">
+            <div class="board-list"></div>
+            <div class="board-list"></div>
+            <div class="board-list"></div>
+            <div class="board-list"></div>
+            <div class="last-board-list"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 무엇을 도와드릴까요? 더보기 -->
+      <div class="customer-service-more-btn">
+        <span>
+          <a href="">더보기 ></a>
+        </span>
+      </div>
+    </div>
+    <!-- <div class="main_goods_cont">
+      {=includeWidget('goods/_goods_display_main.html', 'sno', '2')}
+    </div> -->
+
+    <!-- 
+    ※※ 메인 하단 한줄배너 ※※
+    해당 부분 숨김 처리 class="mainContainer mTop30 displaynone" 또는 주석처리 
+    class에 displaynone을 추가하십시요.
+-->
+
+    <!-- 
+    ※※ MOVIE ZONE 진열 영역 ※※
+    해당 부분 숨김 처리 class="mainContainerHidden mainBgContent2 mTop30 displaynone" 또는 주석처리 
+    class에 displaynone을 추가하십시요.
+
+    ※※ REVIEW 진열 영역 ※※
+    해당 부분 숨김 처리 class="mainContainerHidden mTop70 mBot20 displaynone" 또는 주석처리 
+    class에 displaynone을 추가하십시요.
+-->
+
+    <!-- FIX: 20220911 디자인 가이드
+<div class="color_green_background color_box">
+    <div class="mainContainer mTop30">
+        <div class="goods_list_tit">
+            <h3 class="color_orange_text">DESIGN GUIDE</h3>
+        </div>
+        <div class="mainBanner mTop30">
+            <ul class="cols4">
+            </ul>
+        </div>
+    </div>
+    <div class="more_div">
+        <a href="#" class="more_box color_orange_text color_orange_border hover">더보기 +</a>
+    </div>
+</div>
+-->
+    <a href="../board/list.php?bdId=designguide">
+      <div class="design_guide mTop50">
+        <img src="../img/main/guide.png" class="design_guide_img" />
+      </div>
+    </a>
+
+    <!-- 
+	인스고위젯 소스 코드 인스고위젯에서 생성한 소스코드를 삽입하시기 바랍니다.	
+	<a href="https://www.instagram.com/mplshop2019/" target="_blank">  부분에 인스타그램 연결링크를 삽입하여 사용하시기 바랍니다.
+-->
+
+    <!-- 인스고위젯 소스 코드  -->
+
+    { # footer }
+  </body>
+</html>
